@@ -1,0 +1,34 @@
+Act as a Principal Full-Stack Cloud Architect and Lead UI/UX Engineer. Create a modern, responsive web application for "Sustune Care" (Tagline: "Care for your property. Care for your parents. Peace of mind for you.") using React 18, Next.js (App Router), TypeScript, Tailwind CSS, Lucide React icons, and Framer Motion.
+
+DESIGN SYSTEM & PALETTE:
+- Primary Dark: Deep Royal Navy (#0B1B3D)
+- Accent Primary: Brushed Champagne Gold (#D4AF37)
+- Secondary Accent: Deep Wellness Emerald (#0F5132)
+- Neutral Canvas: Off-White (#FBFBFB) with Slate (#1E293B) text.
+- UI Tone: Premium, trustworthy, empathetic, institutional-grade.
+
+CORE SITE ARCHITECTURE & ROUTES:
+1. '/' (Dual-Hero Landing Page):
+   - Hero: Split interactive toggle between Aegis (Property) and Sparsh (Parental Care).
+   - Value Proposition: The "Anxiety of Distance" solved for NRIs.
+   - Dual Showcase: Side-by-side comparison cards with tabs.
+   - Interactive TCO & Care Estimator calculator.
+   - Testimonials & Diaspora Trust metrics (Hyderabad, Bengaluru, Delhi NCR).
+2. '/aegis' (Property Stewardship Page):
+   - Modules: Tenant Scouting, Active Rental Management, Maintenance & Turnkey Interiors, Global Sourcing.
+   - Interactive Pricing Comparison Table: "Tenant Scouting Only" vs "Complete Aegis Management".
+   - Sample Digital Inspection Report Viewer mockup.
+3. '/sparsh' (Parental Healthcare Page):
+   - Pillars: 24/7 Emergency SOS, Doctor Escort, Daily Errands, Regular Companionship.
+   - Live Care Plan Configurator (Emergency + Routine Vitals + Companionship Visits).
+   - "A Trusted Presence Back Home" emotional storytelling video/image module.
+4. '/portal-preview' (Dual-Shield Dashboard Demo):
+   - Tab 1: Real Estate Portfolio (Tenant details, rent ledger, maintenance tickets).
+   - Tab 2: Parent Health Hub (Recent vitals, doctor notes, upcoming medication delivery).
+5. '/contact' (Lead Intake Form):
+   - Dynamic form segmenting NRI Location (USA, UK, UAE, Australia) and Interest (Aegis, Sparsh, or Combined Bundle). Includes WhatsApp Web redirection.
+
+TECHNICAL SPECIFICATIONS:
+- Fully accessible (WCAG 2.1 AA), fully responsive mobile-first design.
+- Clean modular components in /components/ui, /components/aegis, /components/sparsh.
+- Optimize images using Next/Image and implement smooth micro-interactions via Framer Motion.

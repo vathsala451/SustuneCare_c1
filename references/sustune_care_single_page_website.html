@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustune Care | Institutional Asset Stewardship & Family Care for Global NRIs</title>
+    <meta name="description" content="Sustune Care bridges the anxiety of distance for NRIs with Aegis Property Management and Sparsh Family & Elder Care in Hyderabad and Bengaluru.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0F172A',
+                            deepBlue: '#1E3A8A',
+                            royalBlue: '#2563EB',
+                            emerald: '#059669',
+                            emeraldLight: '#10B981',
+                            gold: '#D97706',
+                            goldLight: '#F59E0B',
+                            slateBg: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .glass-card-dark {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .blue-green-gradient {
+            background: linear-gradient(135deg, #1E3A8A 0%, #059669 100%);
+        }
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(217, 119, 6, 0.15);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-brand-slateBg antialiased selection:bg-brand-emerald selection:text-white">
+
+    <!-- Sticky Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo & Brand Identifier -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-brand-deepBlue via-brand-emerald to-brand-gold rounded-xl p-0.5 shadow-md">
+                        <div class="w-full h-full bg-white rounded-[10px] flex items-center justify-center overflow-hidden">
+                            <!-- SVG Representation matching original logo: Shield + House + Wave S + Care Hands + Star -->
+                            <svg class="w-9 h-9" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Top Star -->
+                                <path d="M100 12 L103 22 L113 25 L103 28 L100 38 L97 28 L87 25 L97 22 Z" fill="#007A8C"/>
+                                <!-- House Roof -->
+                                <path d="M68 62 L100 36 L132 62 L124 62 L100 43 L76 62 Z" fill="#D97706"/>
+                                <!-- Chimney & Windows -->
+                                <rect x="120" y="44" width="7" height="12" fill="#D97706"/>
+                                <rect x="92" y="52" width="6" height="6" fill="#F59E0B"/>
+                                <rect x="102" y="52" width="6" height="6" fill="#F59E0B"/>
+                                <rect x="92" y="61" width="6" height="6" fill="#F59E0B"/>
+                                <rect x="102" y="61" width="6" height="6" fill="#F59E0B"/>
+                                <!-- Shield Outer Boundary -->
+                                <path d="M45 42 L100 25 L155 42 V110 C155 150 100 180 100 180 C100 180 45 150 45 110 Z" stroke="#D97706" stroke-width="4" fill="none"/>
+                                <!-- Stylized 'S' Graphic Wave -->
+                                <path d="M125 72 C95 65 72 85 85 105 C98 125 125 120 115 145 C105 160 80 152 75 142" stroke="url(#logo_grad)" stroke-width="14" stroke-linecap="round"/>
+                                <!-- Hands Caring Arc Base -->
+                                <path d="M58 120 C58 148 78 165 100 172 C122 165 142 148 142 120" stroke="#F59E0B" stroke-width="6" stroke-linecap="round" fill="none"/>
+                                <defs>
+                                    <linearGradient id="logo_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#1E3A8A"/>
+                                        <stop offset="50%" stop-color="#007A8C"/>
+                                        <stop offset="100%" stop-color="#059669"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-extrabold text-brand-navy tracking-tight leading-none">SUSTUNE<span class="text-brand-gold"> CARE</span></span>
+                        <span class="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mt-0.5">Asset & Family Stewardship</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+                    <a href="#home" class="hover:text-brand-deepBlue transition-colors">Home</a>
+                    <a href="#solutions" class="hover:text-brand-deepBlue transition-colors">Solutions</a>
+                    <a href="#aegis" class="hover:text-brand-deepBlue transition-colors flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-brand-gold"></span>Aegis Property</a>
+                    <a href="#sparsh" class="hover:text-brand-deepBlue transition-colors flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-brand-emerald"></span>Sparsh Family Care</a>
+                    <a href="#why-us" class="hover:text-brand-deepBlue transition-colors">Why Us</a>
+                    <a href="#leadership" class="hover:text-brand-deepBlue transition-colors">Governance</a>
+                    <a href="#contact" class="hover:text-brand-deepBlue transition-colors">Contact</a>
+                </nav>
+
+                <!-- Primary Call To Action Button -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-deepBlue to-brand-emerald text-white font-semibold text-sm shadow-md hover:shadow-lg hover:opacity-95 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <span>NRI Consultation</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 hover:text-brand-navy focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#home" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">Home</a>
+            <a href="#solutions" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">Solutions</a>
+            <a href="#aegis" class="block px-3 py-2 rounded-md font-medium text-brand-deepBlue hover:bg-slate-50">Aegis Property Stewardship</a>
+            <a href="#sparsh" class="block px-3 py-2 rounded-md font-medium text-brand-emerald hover:bg-slate-50">Sparsh Family & Elder Care</a>
+            <a href="#why-us" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">Why Us</a>
+            <a href="#leadership" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">Leadership</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:bg-slate-50">Contact Us</a>
+            <a href="#contact" class="block w-full text-center px-4 py-3 rounded-xl bg-brand-deepBlue text-white font-semibold">Book NRI Strategy Call</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-slate-900 via-brand-navy to-slate-900 text-white">
+        <!-- Subtle Pattern Background -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-wide uppercase">
+                        <i class="fa-solid fa-shield-halved text-brand-gold"></i>
+                        <span>Hyderabad & Bengaluru Hubs Operational</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Bridging the <span class="gold-gradient-text">Anxiety of Distance</span> for Global Indians
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Sustune Care provides an institutional shield for non-resident Indians. Protect your multi-generational real estate assets and secure empathetic, proxy family healthcare in India with 100% SLA compliance.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-brand-gold text-slate-950 font-bold shadow-lg hover:shadow-amber-500/20 hover:scale-[1.02] transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>Book NRI Strategy Call</span>
+                        </a>
+                        <a href="#survey" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-clipboard-list text-brand-emerald"></i>
+                            <span>Take 2-Min NRI Survey</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Metrics Badge -->
+                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="text-xl sm:text-2xl font-bold text-white">100%</div>
+                            <div class="text-xs text-slate-400">FEMA & RBI Compliant</div>
+                        </div>
+                        <div>
+                            <div class="text-xl sm:text-2xl font-bold text-brand-emeraldLight">24/7</div>
+                            <div class="text-xs text-slate-400">Live Client Portal</div>
+                        </div>
+                        <div>
+                            <div class="text-xl sm:text-2xl font-bold text-amber-400">Dual Arm</div>
+                            <div class="text-xs text-slate-400">Property & Elder Care</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Feature Card: Dual Pillars -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-2xl p-1 bg-gradient-to-b from-amber-500/40 via-brand-emerald/30 to-brand-deepBlue/40 shadow-2xl">
+                        <div class="bg-slate-900 rounded-[14px] p-6 sm:p-8 space-y-6">
+                            <div class="flex justify-between items-center pb-4 border-b border-slate-800">
+                                <div>
+                                    <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Sustune Care Enterprise</span>
+                                    <h3 class="text-xl font-bold text-white">Dual Institutional Pillars</h3>
+                                </div>
+                                <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 text-xs font-semibold">Active Hubs</span>
+                            </div>
+
+                            <!-- Pillar 1: Aegis -->
+                            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-amber-500/50 transition-all group">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                                        <i class="fa-solid fa-building-shield text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center justify-between">
+                                            <h4 class="font-bold text-white group-hover:text-amber-400 transition-colors">AEGIS PROPERTY</h4>
+                                            <span class="text-[10px] font-semibold text-slate-400 bg-slate-800 px-2 py-0.5 rounded">Asset Stewardship</span>
+                                        </div>
+                                        <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                                            Vacant asset guardianship, tenant background screening, automated rental collection & structural preservation.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pillar 2: Sparsh -->
+                            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:border-emerald-500/50 transition-all group">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                                        <i class="fa-solid fa-hand-holding-medical text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center justify-between">
+                                            <h4 class="font-bold text-white group-hover:text-emerald-400 transition-colors">SPARSH FAMILY CARE</h4>
+                                            <span class="text-[10px] font-semibold text-slate-400 bg-slate-800 px-2 py-0.5 rounded">Elderly Proxy Care</span>
+                                        </div>
+                                        <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                                            Dedicated care companions, doctor visit escorts, emergency response SOPs, and digitized health check updates.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Operational Core Notice -->
+                            <div class="p-3 rounded-lg bg-brand-deepBlue/40 border border-blue-500/30 text-xs text-slate-300 flex items-center gap-3">
+                                <i class="fa-solid fa-circle-info text-blue-400 text-base shrink-0"></i>
+                                <span>Direct execution in Hyderabad & Bengaluru with dedicated ground managers.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Dual Offerings Section -->
+    <section id="solutions" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-emerald uppercase tracking-widest mb-2">Comprehensive Solutions</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-brand-navy tracking-tight">
+                    Integrated Support Across Asset & Family Needs
+                </h3>
+                <p class="text-slate-600 mt-4 text-base">
+                    Eliminating the friction of remote management with transparent digital reporting, verified field staff, and institutional governance.
+                </p>
+            </div>
+
+            <!-- Aegis Property Section -->
+            <div id="aegis" class="mb-20 scroll-mt-28">
+                <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-xl border border-slate-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl -mr-12 -mt-12"></div>
+                    
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-slate-100">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 font-bold text-2xl">
+                                <i class="fa-solid fa-shield-cat"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Real Estate & Asset Protection</span>
+                                <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-navy">AEGIS Property Stewardship</h3>
+                            </div>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-navy text-white text-sm font-semibold hover:bg-slate-800 transition-colors">
+                            <span>Inquire for Property</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                            <h4 class="font-bold text-brand-navy mb-2">Tenant Scouting & Screening</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Multi-point background checks, employment verification, legal lease drafting, and police verification.</p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-house-lock"></i>
+                            </div>
+                            <h4 class="font-bold text-brand-navy mb-2">Vacant Asset Guardianship</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Perimeter monitoring, periodic ventilation, key custody, and warning signage to prevent encroachment.</p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                            </div>
+                            <h4 class="font-bold text-brand-navy mb-2">Remittance & Tax Management</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">FEMA-compliant rental deposits into NRE/NRO accounts, society dues payments, and municipal property tax management.</p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-wrench"></i>
+                            </div>
+                            <h4 class="font-bold text-brand-navy mb-2">Inspection & Upkeep</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">High-definition video walkthrough audits, empanelled plumbing/electrical repair, and renovation oversight.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sparsh Family Care Section -->
+            <div id="sparsh" class="scroll-mt-28">
+                <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-xl border border-slate-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl -mr-12 -mt-12"></div>
+                    
+                    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-slate-100">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-brand-emerald font-bold text-2xl">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-brand-emerald uppercase tracking-widest">Elderly Support & Healthcare</span>
+                                <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-navy">SPARSH Family Care</h3>
+                            </div>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-emerald text-white text-sm font-semibold hover:bg-emerald-700 transition-colors">
+                            <span>Inquire for Family</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-user-nurse"></i>
+                            </div>
+                            <h4 class="font-bold text-brand-navy mb-2">Empathetic Care Companions</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Background-verified, language-matched companions for routine check-ins, errand runs, and tech support.</p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-notes-medical"></i>
+                            </div>
+                            <h4 class="font-bold text-brand-navy mb-2">Doctor Escort & Health Logs</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Full hospital consultation accompaniment, lab coordination, pharmacy refill management, and digitized doctor notes.</p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-truck-medical"></i>
+                            </div>
+                            <h4 class="font-bold text-brand-navy mb-2">24/7 Emergency SOP Response</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Pre-mapped hospital network response (Apollo, Care, Manipal) with immediate local companion dispatch.</p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-people-roof"></i>
+                            </div>
+                            <h4 class="font-bold text-brand-navy mb-2">Domestic Help Supervision</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">Vetting and managing home cooks, maids, and drivers to relieve parents from household management friction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive NRI Survey Section -->
+    <section id="survey" class="py-16 bg-gradient-to-r from-brand-navy via-slate-900 to-brand-navy text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-slate-800/80 rounded-3xl p-8 sm:p-12 border border-slate-700/80 shadow-2xl backdrop-blur-md">
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-4">
+                        <span class="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                            NRI Pulse Research
+                        </span>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+                            Help Us Tailor Services for Your City Back Home
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Managing physical real estate and caring for aging parents thousands of miles away is one of the hardest challenges for the Global Indian diaspora. Take our brief 2-minute survey to shape our operational expansion in Hyderabad & Bengaluru.
+                        </p>
+                        <div class="flex items-center gap-4 pt-2 text-xs text-slate-400">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-amber-400"></i> Takes 2 Minutes</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-brand-emerald"></i> 100% Confidential</span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 flex flex-col items-center lg:items-end justify-center">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCuTEI5h1hxB0yzlwRM-U_6RDU2JQ-FCXwimKynh4RM0IJzA/viewform" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-emerald to-emerald-600 text-white font-bold text-center shadow-lg hover:shadow-emerald-500/20 hover:scale-[1.02] transition-all flex items-center justify-center gap-3">
+                            <span>Complete 2-Min Survey</span>
+                            <i class="fa-solid fa-external-link text-sm"></i>
+                        </a>
+                        <span class="text-[11px] text-slate-400 mt-3">Opens official Sustune Care Google Form</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Governance Section -->
+    <section id="leadership" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-gold uppercase tracking-widest mb-2">Leadership Governance</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-brand-navy tracking-tight">
+                    Backed by Experienced Founders & Domain Leaders
+                </h3>
+                <p class="text-slate-600 mt-4 text-base">
+                    A clear executive hierarchy driving global diaspora engagement, corporate compliance, and ground-level SLA execution.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Leader 1: Shiva -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 hover:border-brand-gold/50 transition-all text-center group">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-navy to-brand-gold p-1 mx-auto mb-4 shadow-md">
+                        <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-2xl">
+                            S
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-bold text-brand-navy group-hover:text-brand-gold transition-colors">Shiva</h4>
+                    <p class="text-xs font-semibold text-brand-gold uppercase tracking-wider mt-0.5">Founder, Chairman & CEO</p>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                        Drives global vision, international diaspora engagement (US, UK, AUS), investor relations, and corporate governance.
+                    </p>
+                </div>
+
+                <!-- Leader 2: Ram -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 hover:border-brand-deepBlue/50 transition-all text-center group">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-navy to-brand-deepBlue p-1 mx-auto mb-4 shadow-md">
+                        <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-2xl">
+                            R
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-bold text-brand-navy group-hover:text-brand-deepBlue transition-colors">Ram</h4>
+                    <p class="text-xs font-semibold text-brand-deepBlue uppercase tracking-wider mt-0.5">Principal Co-founder & CBO</p>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                        Leads commercial growth, revenue pipelines, legal compliance, and FEMA-compliant financial remittance structures.
+                    </p>
+                </div>
+
+                <!-- Leader 3: Pramod -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 hover:border-brand-emerald/50 transition-all text-center group">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-navy to-brand-emerald p-1 mx-auto mb-4 shadow-md">
+                        <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-2xl">
+                            P
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-bold text-brand-navy group-hover:text-brand-emerald transition-colors">Pramod</h4>
+                    <p class="text-xs font-semibold text-brand-emerald uppercase tracking-wider mt-0.5">Co-founder & COO</p>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                        Directs ground operations in Hyderabad & Bengaluru, managing property stewards and emergency care companions.
+                    </p>
+                </div>
+
+                <!-- Leader 4: Sailaja -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 hover:border-amber-500/50 transition-all text-center group">
+                    <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-navy to-amber-500 p-1 mx-auto mb-4 shadow-md">
+                        <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-2xl">
+                            S
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-bold text-brand-navy group-hover:text-amber-600 transition-colors">Sailaja</h4>
+                    <p class="text-xs font-semibold text-amber-600 uppercase tracking-wider mt-0.5">Co-founder & CHRO</p>
+                    <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                        Oversees empathy standards, field staff background screening, employee verification, and client portal integration.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Comparison Matrix Section -->
+    <section id="why-us" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-navy uppercase tracking-widest mb-2">Institutional Standard</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-brand-navy tracking-tight">
+                    Why Sustune Care Outperforms Alternatives
+                </h3>
+                <p class="text-slate-600 mt-4 text-base">
+                    Compare institutional corporate accountability with informal brokers or burdened local relatives.
+                </p>
+            </div>
+
+            <!-- Matrix Table -->
+            <div class="overflow-x-auto bg-white rounded-3xl shadow-xl border border-slate-200">
+                <table class="w-full text-left border-collapse min-w-[640px]">
+                    <thead>
+                        <tr class="bg-brand-navy text-white">
+                            <th class="py-5 px-6 font-bold text-sm">Key Evaluation Pillars</th>
+                            <th class="py-5 px-6 font-bold text-sm text-brand-gold uppercase tracking-wider bg-slate-900/50">Sustune Care (Institutional)</th>
+                            <th class="py-5 px-6 font-bold text-sm text-slate-300">Local Brokers / Agents</th>
+                            <th class="py-5 px-6 font-bold text-sm text-slate-300">Friends & Relatives</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-sm">
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-4 px-6 font-semibold text-slate-800">Legal Accountability</td>
+                            <td class="py-4 px-6 font-bold text-brand-emerald bg-emerald-50/40"><i class="fa-solid fa-circle-check mr-2"></i>Pvt Ltd Legal SLA Binding</td>
+                            <td class="py-4 px-6 text-slate-500"><i class="fa-solid fa-circle-xmark mr-2 text-rose-500"></i>None / Informal</td>
+                            <td class="py-4 px-6 text-slate-500"><i class="fa-solid fa-circle-xmark mr-2 text-rose-500"></i>Social Friction</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-4 px-6 font-semibold text-slate-800">Background Verification</td>
+                            <td class="py-4 px-6 font-bold text-brand-emerald bg-emerald-50/40"><i class="fa-solid fa-circle-check mr-2"></i>Multi-tier Police Checks</td>
+                            <td class="py-4 px-6 text-slate-500"><i class="fa-solid fa-circle-xmark mr-2 text-rose-500"></i>Unverified Workers</td>
+                            <td class="py-4 px-6 text-slate-500"><i class="fa-solid fa-circle-xmark mr-2 text-rose-500"></i>Unregulated</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-4 px-6 font-semibold text-slate-800">Digital Reporting</td>
+                            <td class="py-4 px-6 font-bold text-brand-emerald bg-emerald-50/40"><i class="fa-solid fa-circle-check mr-2"></i>24/7 NRI App & HD Media</td>
+                            <td class="py-4 px-6 text-slate-500"><i class="fa-solid fa-circle-xmark mr-2 text-rose-500"></i>Ad-hoc Phone Calls</td>
+                            <td class="py-4 px-6 text-slate-500"><i class="fa-solid fa-circle-xmark mr-2 text-rose-500"></i>Infrequent Updates</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-4 px-6 font-semibold text-slate-800">Emergency Healthcare SOP</td>
+                            <td class="py-4 px-6 font-bold text-brand-emerald bg-emerald-50/40"><i class="fa-solid fa-circle-check mr-2"></i>Guaranteed Hospital Protocols</td>
+                            <td class="py-4 px-6 text-slate-500"><i class="fa-solid fa-circle-xmark mr-2 text-rose-500"></i>Not Offered</td>
+                            <td class="py-4 px-6 text-slate-500"><i class="fa-solid fa-triangle-exclamation mr-2 text-amber-500"></i>Depends on availability</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-4 px-6 font-semibold text-slate-800">Financial Compliance</td>
+                            <td class="py-4 px-6 font-bold text-brand-emerald bg-emerald-50/40"><i class="fa-solid fa-circle-check mr-2"></i>FEMA & RBI NRE/NRO Audited</td>
+                            <td class="py-4 px-6 text-slate-500"><i class="fa-solid fa-circle-xmark mr-2 text-rose-500"></i>Cash / Opaque fees</td>
+                            <td class="py-4 px-6 text-slate-500"><i class="fa-solid fa-circle-xmark mr-2 text-rose-500"></i>Awkward Reimbursements</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & NRI Inquiry Form Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Left Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold text-brand-gold uppercase tracking-widest">Connect With Leadership</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy">
+                        Schedule Your NRI Strategy Consultation
+                    </h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Whether you need vacant plot protection in Hyderabad or medical companion support for parents in Bengaluru, our team is ready to structure a customized agreement.
+                    </p>
+
+                    <!-- Contact Cards -->
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="w-10 h-10 rounded-lg bg-brand-deepBlue text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-navy">Hyderabad Principal Office</h4>
+                                <p class="text-xs text-slate-600">Telangana Core Operations Center, India</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="w-10 h-10 rounded-lg bg-brand-emerald text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-city"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-navy">Bengaluru Operational Hub</h4>
+                                <p class="text-xs text-slate-600">Karnataka Regional Office, India</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
+                            <div class="w-10 h-10 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-navy">Email Communications</h4>
+                                <p class="text-xs text-slate-600">sustunecare@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 shadow-lg">
+                        <h3 class="text-xl font-bold text-brand-navy mb-6">Inquiry & Consultation Form</h3>
+                        
+                        <form id="nri-consult-form" class="space-y-4" onsubmit="event.preventDefault(); handleFormSubmit();">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name *</label>
+                                    <input type="text" required placeholder="e.g. Shiva Kumar" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-deepBlue">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Email Address *</label>
+                                    <input type="email" required placeholder="name@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-deepBlue">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Country of Residence *</label>
+                                    <select required class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-deepBlue">
+                                        <option value="">Select Country</option>
+                                        <option value="USA">United States (USA)</option>
+                                        <option value="UK">United Kingdom (UK)</option>
+                                        <option value="UAE">United Arab Emirates (UAE)</option>
+                                        <option value="AUS">Australia</option>
+                                        <option value="CAN">Canada</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">WhatsApp / Phone *</label>
+                                    <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-deepBlue">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Target City in India *</label>
+                                    <select required class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-deepBlue">
+                                        <option value="Hyderabad">Hyderabad</option>
+                                        <option value="Bengaluru">Bengaluru</option>
+                                        <option value="Both">Both Cities</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Primary Interest *</label>
+                                    <select required class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-deepBlue">
+                                        <option value="Aegis">Aegis Property Stewardship</option>
+                                        <option value="Sparsh">Sparsh Family Care</option>
+                                        <option value="Both">Bundled (Aegis + Sparsh)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Specific Requirements / Notes</label>
+                                <textarea rows="3" placeholder="Describe property locations, parent care requirements, or timeline..." class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-brand-deepBlue"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-deepBlue via-brand-navy to-brand-emerald text-white font-bold text-sm shadow-lg hover:opacity-95 transition-all">
+                                Request Strategy Callback
+                            </button>
+                        </form>
+
+                        <div id="form-success-msg" class="hidden mt-4 p-4 rounded-xl bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-semibold text-center">
+                            Thank you! Your inquiry has been logged. Our leadership team will contact you shortly.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-3 md:col-span-1">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-lg font-bold text-white tracking-tight">SUSTUNE<span class="text-brand-gold"> CARE</span></span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed">
+                        Sustune Care Private Limited is an institutional proxy service provider for Global NRIs across property stewardship and parental elder care.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-3">Quick Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#solutions" class="hover:text-white transition-colors">Solutions Overview</a></li>
+                        <li><a href="#aegis" class="hover:text-white transition-colors">Aegis Property</a></li>
+                        <li><a href="#sparsh" class="hover:text-white transition-colors">Sparsh Family Care</a></li>
+                        <li><a href="#survey" class="hover:text-white transition-colors">NRI Research Survey</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Compliance & Legal -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-3">Regulatory Compliance</h4>
+                    <ul class="space-y-2">
+                        <li><span>FEMA Remittance Compliant</span></li>
+                        <li><span>RBI NRE/NRO Banking Trails</span></li>
+                        <li><span>Dual-State GST Registered</span></li>
+                        <li><span>Trademark Registered Marks</span></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Corporate Info -->
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-3">Operating Hubs</h4>
+                    <p class="leading-relaxed">
+                        <strong>Hyderabad:</strong> Telangana Principal Office<br>
+                        <strong>Bengaluru:</strong> Karnataka Branch Office<br>
+                        <strong>Email:</strong> sustunecare@gmail.com
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>&copy; 2026 Sustune Care Private Limited. All Rights Reserved.</p>
+                <div class="flex space-x-4 text-sm">
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactivity Script -->
+    <script>
+        // Mobile menu toggle logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Form Submission Handler
+        function handleFormSubmit() {
+            const successMsg = document.getElementById('form-success-msg');
+            const form = document.getElementById('nri-consult-form');
+            successMsg.classList.remove('hidden');
+            form.reset();
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
