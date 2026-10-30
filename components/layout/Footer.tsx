@@ -7,6 +7,7 @@ import {
   ShieldCheck,
   HeartHandshake,
   Lock,
+
   MapPin,
   Clock,
   Phone,
@@ -20,7 +21,7 @@ export function Footer() {
   return (
     <footer className="bg-[#0B1F3A] text-white border-t border-[#D8B56D]/30 pt-16 pb-12 relative overflow-hidden select-none">
       {/* Background Architectural Grid & Subtle Radial Glow */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{
           backgroundImage: `linear-gradient(#D8B56D 1px, transparent 1px), linear-gradient(90deg, #D8B56D 1px, transparent 1px)`,
