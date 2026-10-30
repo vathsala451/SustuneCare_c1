@@ -46,7 +46,7 @@ export function PortalTransparency() {
 
           <div className="flex flex-wrap items-center gap-3 shrink-0">
             <Button
-              href="/portal-preview"
+              href="/portal/login"
               variant="primary"
               size="md"
               className="bg-gradient-to-r from-[#D8B56D] to-[#B79224] hover:from-[#F3DC87] hover:to-[#D8B56D] text-[#0B1F3A] font-bold shadow-md"
@@ -341,7 +341,7 @@ export function PortalTransparency() {
               Interactive demonstration — sample data only. Protected by 256-bit SSL encryption in production.
             </span>
             <Link
-              href="/portal-preview"
+              href="/portal/login"
               className="text-brand-cerulean dark:text-[#F3DC87] font-bold hover:underline flex items-center gap-1 shrink-0"
             >
               <span>Explore full interactive dashboard</span>

@@ -46,27 +46,29 @@ export function Header() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isMobileMenuOpen]);
 
-  const navLinks = [
+  interface NavLinkItem {
+    label: string;
+    href: string;
+    icon?: React.ReactNode;
+    badge?: string;
+    badgeColor?: string;
+  }
+
+  const navLinks: NavLinkItem[] = [
     { label: "Home", href: "/" },
     {
       label: "Aegis Property",
       href: "/aegis",
-      badge: "Real Estate",
-      badgeColor: "bg-[#D8B56D]/15 text-[#967530] border-[#D8B56D]/40 dark:bg-[#D8B56D]/20 dark:text-[#F3DC87]",
       icon: <ShieldCheck className="w-4 h-4 text-[#D8B56D]" />,
     },
     {
       label: "Sparsh Elder Care",
       href: "/sparsh",
-      badge: "Elder Care",
-      badgeColor: "bg-[#176B63]/15 text-[#176B63] border-[#176B63]/30 dark:bg-[#176B63]/30 dark:text-emerald-300",
       icon: <HeartHandshake className="w-4 h-4 text-[#176B63]" />,
     },
     {
       label: "Client Portal",
-      href: "/portal-preview",
-      badge: "Demo",
-      badgeColor: "bg-blue-50 text-blue-800 border-blue-200 dark:bg-blue-950/60 dark:text-blue-300",
+      href: "/portal/login",
       icon: <LayoutDashboard className="w-4 h-4 text-blue-600 dark:text-blue-400" />,
     },
     { label: "Why Sustune", href: "/why-sustune" },
@@ -96,7 +98,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all focus-ring ${
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all focus-ring ${
                   isActive
                     ? "text-[#0B1F3A] dark:text-white bg-slate-100 dark:bg-white/10 font-bold"
                     : "text-slate-700 dark:text-slate-200 hover:text-[#0B1F3A] dark:hover:text-[#F3DC87] hover:bg-slate-50 dark:hover:bg-white/10"
@@ -122,7 +124,7 @@ export function Header() {
           <ThemeToggle variant="header" />
 
           <Link
-            href="/portal-preview"
+            href="/portal/login"
             className="text-xs font-semibold text-[#0B1F3A] dark:text-slate-200 hover:text-[#176B63] dark:hover:text-[#F3DC87] px-3.5 py-2 rounded-lg border border-slate-200 dark:border-white/20 hover:border-[#D8B56D]/60 transition-all flex items-center gap-1.5 focus-ring"
           >
             <LayoutDashboard className="w-3.5 h-3.5 text-[#D8B56D]" />
@@ -210,14 +212,14 @@ export function Header() {
               Book NRI Strategy Consultation
             </Button>
             <Button
-              href="/portal-preview"
+              href="/portal/login"
               variant="outline"
               size="md"
               fullWidth
               className="border-slate-300 dark:border-white/20 text-[#0B1F3A] dark:text-white"
               icon={<LayoutDashboard className="w-4 h-4 text-[#D8B56D]" />}
             >
-              Interactive Portal Demo
+              Client Portal Login
             </Button>
             <div className="text-center pt-2 text-xs text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1.5">
               <PhoneCall className="w-3.5 h-3.5 text-[#D8B56D]" />

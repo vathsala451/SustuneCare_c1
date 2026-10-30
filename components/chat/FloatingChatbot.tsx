@@ -57,7 +57,7 @@ export function FloatingChatbot() {
       ? "NRI Consultation Desk"
       : pathname.includes("/why-sustune")
       ? "Institutional Governance"
-      : pathname.includes("/portal-preview")
+      : pathname.includes("/portal")
       ? "Client Portal Dashboard"
       : "Sustune Care Services";
 

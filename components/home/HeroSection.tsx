@@ -23,7 +23,7 @@ export function HeroSection() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-[#071329] text-white min-h-[92vh] flex flex-col justify-center pt-8 pb-16 lg:pt-12 lg:pb-20">
+    <section id="solutions" className="relative overflow-hidden bg-[#071329] text-white min-h-[92vh] flex flex-col justify-center pt-8 pb-16 lg:pt-12 lg:pb-20">
       {/* 1. High-Quality Static Marketing Image Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
         <Image
@@ -42,18 +42,36 @@ export function HeroSection() {
         {/* Sophisticated Vignette Overlays for Crisp Text Contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#071329]/85 via-[#071329]/50 to-[#071329]/95" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_35%,_#071329_95%)]" />
+        {/* Subtle Architectural Grid Pattern Matching Design */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_35%,#000_60%,transparent_100%)] pointer-events-none" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        {/* Top Centered Status Bar */}
+        {/* Top Centered Status Bar & Logo as shown in the design */}
         <div className="flex flex-col items-center justify-center text-center mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-[#D8B56D]/40 backdrop-blur-md text-xs font-semibold text-slate-200 shadow-sm mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#D8B56D] animate-ping shrink-0" />
-            <span className="text-[#F3DC87] uppercase tracking-wider text-[11px] font-bold">
-              Institutional Property &amp; Family Care
+          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 rounded-full bg-white/[0.08] border border-white/20 backdrop-blur-md text-xs font-semibold text-slate-300 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-[#D8B56D] shrink-0" />
+            <span className="text-[#E6C67A] uppercase tracking-wider text-[11px] sm:text-xs font-bold">
+              Property &amp; Family Care, Connected
             </span>
-            <span className="text-slate-400">·</span>
-            <span className="text-slate-300">USA · UK · UAE · Australia · Canada · Singapore</span>
+            <span className="text-slate-400 font-light">|</span>
+            <span className="text-slate-300 text-[11px] sm:text-xs">
+              USA • UK • UAE • Australia • Canada • Singapore
+            </span>
+          </div>
+
+          {/* Sustune Care Shield Emblem - Displayed Cleanly Without Background (Enlarged) */}
+          <div className="my-4 sm:my-5 flex items-center justify-center">
+            <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 flex items-center justify-center transition-transform duration-300 hover:scale-105">
+              <Image
+                src="/brand/logo.png"
+                alt="Sustune Care Shield Logo"
+                width={180}
+                height={195}
+                priority
+                className="w-full h-full object-contain select-none drop-shadow-[0_10px_32px_rgba(216,181,109,0.35)] filter"
+              />
+            </div>
           </div>
 
           {/* Main Headline - Short, Punchy, Emotional */}
@@ -62,9 +80,13 @@ export function HeroSection() {
             <span className="gold-gradient-text">Never Mean Worry.</span>
           </h1>
 
-          {/* Short 1-Sentence Value Hook (No long document paragraphs) */}
-          <p className="mt-4 text-base sm:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed font-body font-normal">
-            Care for your property. Care for your parents. Total peace of mind for global NRIs across Bengaluru, Hyderabad, and Delhi NCR.
+          {/* Value Hook matching the mockup */}
+          <p className="mt-5 text-sm sm:text-base lg:text-lg text-slate-200 max-w-3xl mx-auto leading-relaxed font-body">
+            <strong className="font-bold text-white">
+              Care for your property. Care for your parents. Peace of mind for you.
+            </strong>{" "}
+            Sustune Care replaces the anxiety of distance with institutional property stewardship (Aegis) and
+            compassionate family elder care (Sparsh) across Bengaluru, Hyderabad, and Delhi NCR.
           </p>
 
           {/* Interactive 3-Option Quick Selector */}
@@ -98,7 +120,7 @@ export function HeroSection() {
                     : "text-slate-300 hover:text-white"
                 }`}
               >
-                <Building2 className="w-4 h-4 text-[#D8B56D]" />
+                <ShieldCheck className="w-4 h-4 text-[#D8B56D]" />
                 <span>Aegis Property</span>
               </button>
 
@@ -114,7 +136,7 @@ export function HeroSection() {
                     : "text-slate-300 hover:text-white"
                 }`}
               >
-                <HeartHandshake className="w-4 h-4 text-emerald-300" />
+                <HeartHandshake className="w-4 h-4 text-emerald-400" />
                 <span>Sparsh Elder Care</span>
               </button>
             </div>
@@ -278,12 +300,36 @@ export function HeroSection() {
             <button
               type="button"
               onClick={() => setIsVideoModalOpen(true)}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white text-xs sm:text-sm font-semibold border border-white/20 transition-all cursor-pointer group"
+              className="group relative inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-white/[0.08] via-white/[0.04] to-white/[0.08] hover:from-white/[0.14] hover:to-white/[0.1] text-white border border-[#D8B56D]/35 hover:border-[#D8B56D]/80 shadow-lg hover:shadow-[0_8px_28px_rgba(216,181,109,0.3)] backdrop-blur-md transition-all duration-300 cursor-pointer"
             >
-              <div className="w-6 h-6 rounded-full bg-[#D8B56D] text-[#0B1F3A] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <Play className="w-3 h-3 fill-current translate-x-0.5" />
+              {/* Unique Multi-Layered Cinema 4K Icon with Sonar Pulse */}
+              <div className="relative flex items-center justify-center shrink-0 w-8 h-8 sm:w-9 sm:h-9">
+                {/* 1. Radar Sonar Ping Wave */}
+                <span className="absolute -inset-1 rounded-full bg-[#D8B56D]/35 animate-ping opacity-60 duration-1000 pointer-events-none" />
+
+                {/* 2. Outer Precision Gold Bevel Ring */}
+                <div className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full p-[1.5px] bg-gradient-to-tr from-[#967530] via-[#F3DC87] to-[#D8B56D] shadow-[0_0_14px_rgba(216,181,109,0.45)] group-hover:shadow-[0_0_24px_rgba(216,181,109,0.8)] transition-all">
+                  {/* 3. Deep Optical Lens Well */}
+                  <div className="w-full h-full rounded-full bg-[#071329] p-[2px] flex items-center justify-center">
+                    {/* 4. Metallic Gold Core Disc */}
+                    <div className="w-full h-full rounded-full bg-gradient-to-br from-[#F5DE93] via-[#D8B56D] to-[#B79224] flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform duration-300">
+                      {/* 5. Crisp Cinema Play Arrow */}
+                      <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#071329] fill-current translate-x-0.5 filter drop-shadow-[0_1px_1px_rgba(255,255,255,0.4)] group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 6. Active 4K Recording Indicator Pip */}
+                <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 border border-[#071329]" />
+                </span>
               </div>
-              <span>Watch 4K Operational Video</span>
+
+              {/* Text Label */}
+              <span className="text-xs sm:text-sm font-bold tracking-tight text-white group-hover:text-[#F3DC87] transition-colors pr-1">
+                Watch Video
+              </span>
             </button>
           </div>
 

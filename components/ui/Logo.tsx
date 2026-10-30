@@ -67,7 +67,7 @@ export function Logo({
             isDark ? "text-white" : "text-[#0B1F3A] dark:text-white"
           }`}
         >
-          SUSTUNE <span className="text-[#B79224] dark:text-[#F3DC87] font-bold">CARE</span>
+          SUSTUNE CARE
         </span>
         {showTagline && (
           <span

@@ -1,0 +1,21 @@
+[
+  {
+    "id": "client-dual-mvrwzxal",
+    "name": "Rajeshwari H M",
+    "email": "hmrajeshwari15@gmail.com",
+    "phone": "+918317489509",
+    "nriLocation": "India",
+    "memberSince": "October 2026",
+    "serviceTier": "dual",
+    "aegisAccess": true,
+    "sparshAccess": true,
+    "avatarInitials": "RH",
+    "passwordHash": "bab79f70645f90cead433ab72fd2b15f9b0f603c7b6b329d50a66dab4a1645de",
+    "assignedCityManager": {
+      "name": "Vikramaditya Rao",
+      "phone": "+91 98450 12345",
+      "whatsapp": "919845012345",
+      "hub": "Bengaluru Central (Indiranagar)"
+    }
+  }
+]

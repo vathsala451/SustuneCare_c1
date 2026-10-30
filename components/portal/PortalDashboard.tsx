@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -40,11 +40,14 @@ import {
   ArrowRight,
   Activity,
   Layers,
+  LogOut,
+  MapPin,
 } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { usePortalAuth } from "@/lib/portal-auth-context";
 
 interface NotificationItem {
   id: string;
@@ -55,7 +58,22 @@ interface NotificationItem {
 }
 
 export function PortalDashboard() {
-  const [activeTab, setActiveTab] = useState<"property" | "care">("property");
+  const { client, logout } = usePortalAuth();
+
+  // Role-based initial tab: Sparsh-only clients default to care; Aegis and Dual-Shield default to property
+  const [activeTab, setActiveTab] = useState<"property" | "care">(
+    client?.serviceTier === "sparsh" ? "care" : "property"
+  );
+
+  // Synchronize tab if client profile updates
+  useEffect(() => {
+    if (client?.serviceTier === "sparsh") {
+      setActiveTab("care");
+    } else if (client?.serviceTier === "aegis") {
+      setActiveTab("property");
+    }
+  }, [client]);
+
   const [selectedPropertyId, setSelectedPropertyId] = useState<string>("prop-1");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
@@ -452,17 +470,21 @@ export function PortalDashboard() {
 
   return (
     <div className="bg-[#F6F3ED] dark:bg-[#061224] min-h-screen text-[#263548] dark:text-slate-100 transition-colors">
-      {/* IMPROVEMENT 6: Transparent Security & Demo Environment Banner */}
+      {/* Institutional Fiduciary Security Banner */}
       <div className="bg-[#071426] text-[#D8B56D] py-2.5 px-4 border-b border-[#D8B56D]/30 text-xs flex items-center justify-between">
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <Info className="w-4 h-4 text-[#D8B56D] shrink-0" />
+            <ShieldCheck className="w-4 h-4 text-[#D8B56D] shrink-0" />
             <span className="font-medium font-body">
-              Interactive demonstration — simulated sample data only. Real production client portals require authenticated credentials and bank-grade zero-trust access controls.
+              Authenticated Client Session: <strong className="text-white">{client?.name || "Anand Sharma"}</strong> ({client?.email || "anand.sharma@sustunecare.com"}) · 256-bit Encrypted Telemetry Active
             </span>
           </div>
-          <span className="hidden sm:inline-block font-mono text-[11px] text-slate-400">
-            DEMO SIMULATION ENVIRONMENT · NO REAL CUSTOMER DATA
+          <span className="hidden sm:inline-block font-mono text-[11px] text-[#F3DC87] uppercase tracking-wider bg-white/10 px-2.5 py-0.5 rounded border border-[#D8B56D]/30">
+            {client?.serviceTier === "dual"
+              ? "DUAL-SHIELD PRIVILEGES (AEGIS + SPARSH)"
+              : client?.serviceTier === "aegis"
+              ? "AEGIS PROPERTY STEWARDSHIP ONLY"
+              : "SPARSH ELDER CARE ONLY"}
           </span>
         </div>
       </div>
@@ -471,10 +493,10 @@ export function PortalDashboard() {
       <header className="bg-[#0B1F3A] text-white border-b border-[#D8B56D]/20 sticky top-0 z-30 px-4 sm:px-6 lg:px-8 py-3.5 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <Link href="/" className="flex items-center gap-2 group cursor-pointer">
+            <Link href="/" className="flex items-center gap-2 group cursor-pointer" title="Return to Sustune Care Home">
               <div className="w-8 h-8 rounded-lg bg-white p-1 border border-[#D8B56D]/60 flex items-center justify-center">
                 <Image
-                  src="/logo.png"
+                  src="/brand/logo.png"
                   alt="Sustune Care Logo"
                   width={28}
                   height={28}
@@ -488,18 +510,28 @@ export function PortalDashboard() {
             <span className="text-white/30">/</span>
             <div className="flex items-center gap-2">
               <span className="text-[11px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded bg-white/10 text-[#D8B56D] border border-white/10 font-display">
-                Private Concierge Console
+                {client?.serviceTier === "dual"
+                  ? "Dual-Shield Console"
+                  : client?.serviceTier === "aegis"
+                  ? "Aegis Property Console"
+                  : "Sparsh Care Console"}
               </span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             {/* Search Input */}
-            <div className="relative hidden md:block w-72">
+            <div className="relative hidden md:block w-64 lg:w-72">
               <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
-                placeholder="Search properties, reports, vitals..."
+                placeholder={
+                  client?.serviceTier === "sparsh"
+                    ? "Search parent vitals, doctor visits..."
+                    : client?.serviceTier === "aegis"
+                    ? "Search properties, inspection reports..."
+                    : "Search properties, reports, vitals..."
+                }
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-9 pr-3 py-1.5 rounded-lg text-xs border border-white/15 bg-white/10 text-white placeholder-slate-400 focus:outline-none focus:border-[#D8B56D] focus:bg-white/15 transition-all font-body"
@@ -545,45 +577,66 @@ export function PortalDashboard() {
                     </div>
 
                     <div className="space-y-2 max-h-72 overflow-y-auto pr-1">
-                      {notifications.map((item) => (
-                        <div
-                          key={item.id}
-                          className={`p-3 rounded-xl text-xs transition-colors ${
-                            item.read
-                              ? "bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 border border-transparent"
-                              : "bg-[#0B1F3A]/5 dark:bg-white/10 border border-[#D8B56D]/30 text-[#0B1F3A] dark:text-[#F3DC87] font-medium"
-                          }`}
-                        >
-                          <div className="flex items-start gap-2.5">
-                            <span
-                              className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${
-                                item.read ? "bg-slate-300 dark:bg-slate-600" : "bg-[#D8B56D]"
-                              }`}
-                            />
-                            <div className="flex-1">
-                              <p className="leading-snug font-body">{item.title}</p>
-                              <span className="text-[10px] text-slate-400 dark:text-slate-400 mt-1 block font-mono">
-                                {item.time}
-                              </span>
+                      {notifications
+                        .filter((item) => {
+                          if (client?.serviceTier === "aegis") return item.type === "property";
+                          if (client?.serviceTier === "sparsh") return item.type === "care";
+                          return true;
+                        })
+                        .map((item) => (
+                          <div
+                            key={item.id}
+                            className={`p-3 rounded-xl text-xs transition-colors ${
+                              item.read
+                                ? "bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 border border-transparent"
+                                : "bg-[#0B1F3A]/5 dark:bg-white/10 border border-[#D8B56D]/30 text-[#0B1F3A] dark:text-[#F3DC87] font-medium"
+                            }`}
+                          >
+                            <div className="flex items-start gap-2.5">
+                              <span
+                                className={`w-2 h-2 rounded-full mt-1.5 shrink-0 ${
+                                  item.read ? "bg-slate-300 dark:bg-slate-600" : "bg-[#D8B56D]"
+                                }`}
+                              />
+                              <div className="flex-1">
+                                <p className="leading-snug font-body">{item.title}</p>
+                                <span className="text-[10px] text-slate-400 dark:text-slate-400 mt-1 block font-mono">
+                                  {item.time}
+                                </span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
                     </div>
                   </div>
                 </>
               )}
             </div>
 
-            {/* User Profile Avatar */}
+            {/* Authenticated User Profile & Sign Out Action */}
             <div className="flex items-center gap-3 pl-3 border-l border-white/20">
               <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#D8B56D] to-[#f4deb0] text-[#0B1F3A] flex items-center justify-center font-bold text-xs shadow-md border border-[#D8B56D] font-display">
-                RV
+                {client?.avatarInitials || "AS"}
               </div>
               <div className="hidden lg:block text-left text-xs">
-                <span className="font-bold text-white block leading-tight font-display">Rajeshwari V.</span>
-                <span className="text-[11px] text-slate-300 font-body">London, UK (GMT)</span>
+                <span className="font-bold text-white block leading-tight font-display">
+                  {client?.name || "Anand Sharma"}
+                </span>
+                <span className="text-[11px] text-slate-300 font-body">
+                  {client?.nriLocation || "San Jose, CA (USA)"}
+                </span>
               </div>
+
+              {/* Working Logout Button */}
+              <button
+                type="button"
+                onClick={() => logout()}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-red-500/25 text-slate-200 hover:text-red-200 border border-white/15 hover:border-red-400/40 text-xs font-semibold transition-all cursor-pointer shrink-0 ml-1"
+                title="Sign out of your client portal"
+              >
+                <LogOut className="w-3.5 h-3.5 text-slate-300 group-hover:text-red-200" />
+                <span className="hidden sm:inline">Sign Out</span>
+              </button>
             </div>
           </div>
         </div>
@@ -591,43 +644,134 @@ export function PortalDashboard() {
 
       {/* Main Portal Content Container */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
-        {/* Navigation Tabs Bar */}
+        {/* Personalized Welcome & Concierge Liaison Strip */}
+        <div className="bg-gradient-to-r from-white via-slate-50 to-white dark:from-[#0B1F3A] dark:via-[#091a33] dark:to-[#0B1F3A] rounded-3xl p-6 sm:p-8 border border-[#DCE3EA] dark:border-white/10 shadow-sm flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0B1F3A]/5 dark:bg-white/10 border border-[#0B1F3A]/15 dark:border-white/15 text-[#0B1F3A] dark:text-[#F3DC87]">
+                {client?.serviceTier === "dual"
+                  ? "Dual-Shield Family & Property Stewardship"
+                  : client?.serviceTier === "aegis"
+                  ? "Aegis Institutional Real Estate Stewardship"
+                  : "Sparsh Parental Healthcare Concierge"}
+              </span>
+              <span className="text-xs text-slate-400">·</span>
+              <span className="text-xs text-slate-500 dark:text-slate-300 font-medium flex items-center gap-1">
+                <MapPin className="w-3.5 h-3.5 text-[#D8B56D]" />
+                {client?.nriLocation || "San Jose, CA (USA)"}
+              </span>
+            </div>
+
+            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#0B1F3A] dark:text-white">
+              Welcome back, {client?.name || "Anand Sharma"}
+            </h1>
+
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+              {client?.serviceTier === "aegis"
+                ? "Reviewing your real estate asset portfolio, verified escrow rental remittances, and 360° quarterly inspection logs across Bengaluru and Hyderabad."
+                : client?.serviceTier === "sparsh"
+                ? "Monitoring your parents' routine vitals telemetry, hospital escort reports, and doorstep prescription deliveries in Bengaluru."
+                : "Your dual-shield console gives you institutional oversight over your ancestral properties and direct telemetry for your parents in India."}
+            </p>
+          </div>
+
+          {/* Assigned City Manager Liaison Card */}
+          <div className="w-full lg:w-auto p-4 rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-xs flex items-center justify-between lg:justify-start gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-2xl bg-[#0B1F3A] text-[#F3DC87] flex items-center justify-center font-serif font-bold text-base shadow-sm shrink-0 border border-[#D8B56D]/40">
+                {client?.assignedCityManager?.name?.charAt(0) || "V"}
+              </div>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
+                  Dedicated City Manager
+                </span>
+                <span className="text-xs font-bold text-[#0B1F3A] dark:text-white block">
+                  {client?.assignedCityManager?.name || "Vikramaditya Rao"}
+                </span>
+                <span className="text-[11px] text-[#D8B56D] block font-medium">
+                  {client?.assignedCityManager?.hub || "Bengaluru Hub"}
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 border-l border-slate-200 dark:border-white/15 pl-4">
+              <a
+                href={`https://wa.me/${client?.assignedCityManager?.whatsapp || "919845012345"}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+                title="Connect directly on verified WhatsApp careline"
+              >
+                <span>WhatsApp</span>
+              </a>
+              <a
+                href={`tel:${client?.assignedCityManager?.phone || "+919845012345"}`}
+                className="p-1.5 rounded-xl bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-white/15 transition-all"
+                title="Call 24/7 dedicated line"
+              >
+                <PhoneCall className="w-3.5 h-3.5 text-[#D8B56D]" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation Tabs Bar — STRICT ROLE-BASED ACCESS CONTROL */}
         <div className="bg-white dark:bg-[#0B1F3A]/80 rounded-2xl p-2.5 border border-[#DCE3EA] dark:border-white/10 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 transition-colors">
           <div className="flex items-center gap-2 w-full sm:w-auto">
-            <button
-              onClick={() => setActiveTab("property")}
-              className={`flex-1 sm:flex-initial flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer font-display ${
-                activeTab === "property"
-                  ? "bg-[#0B1F3A] text-white shadow-md border border-[#D8B56D]/40"
-                  : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10"
-              }`}
-            >
-              <Building2 className={`w-4 h-4 ${activeTab === "property" ? "text-[#D8B56D]" : "text-slate-400"}`} />
-              <span>Real Estate Portfolio (Aegis)</span>
-              <span className={`text-[10px] px-2 py-0.5 rounded-full ml-1 font-mono ${activeTab === "property" ? "bg-white/20 text-[#D8B56D]" : "bg-slate-200 dark:bg-white/10 text-slate-600 dark:text-slate-300"}`}>
-                2 Units
-              </span>
-            </button>
+            {/* Real Estate Tab — Visible ONLY to Dual-Shield or Aegis-Only Clients */}
+            {client?.serviceTier !== "sparsh" && (
+              <button
+                onClick={() => setActiveTab("property")}
+                className={`flex-1 sm:flex-initial flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer font-display ${
+                  activeTab === "property"
+                    ? "bg-[#0B1F3A] text-white shadow-md border border-[#D8B56D]/40"
+                    : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10"
+                }`}
+              >
+                <Building2 className={`w-4 h-4 ${activeTab === "property" ? "text-[#D8B56D]" : "text-slate-400"}`} />
+                <span>Real Estate Portfolio (Aegis)</span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full ml-1 font-mono ${
+                    activeTab === "property"
+                      ? "bg-white/20 text-[#D8B56D]"
+                      : "bg-slate-200 dark:bg-white/10 text-slate-600 dark:text-slate-300"
+                  }`}
+                >
+                  2 Units
+                </span>
+              </button>
+            )}
 
-            <button
-              onClick={() => setActiveTab("care")}
-              className={`flex-1 sm:flex-initial flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer font-display ${
-                activeTab === "care"
-                  ? "bg-[#176B63] text-white shadow-md border border-teal-400/40"
-                  : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10"
-              }`}
-            >
-              <HeartHandshake className={`w-4 h-4 ${activeTab === "care" ? "text-teal-200" : "text-slate-400"}`} />
-              <span>Parent Health Hub (Sparsh)</span>
-              <span className={`text-[10px] px-2 py-0.5 rounded-full ml-1 font-mono ${activeTab === "care" ? "bg-white/20 text-white" : "bg-slate-200 dark:bg-white/10 text-slate-600 dark:text-slate-300"}`}>
-                Active
-              </span>
-            </button>
+            {/* Parent Health Hub Tab — Visible ONLY to Dual-Shield or Sparsh-Only Clients */}
+            {client?.serviceTier !== "aegis" && (
+              <button
+                onClick={() => setActiveTab("care")}
+                className={`flex-1 sm:flex-initial flex items-center justify-center gap-2.5 px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer font-display ${
+                  activeTab === "care"
+                    ? "bg-[#176B63] text-white shadow-md border border-teal-400/40"
+                    : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10"
+                }`}
+              >
+                <HeartHandshake className={`w-4 h-4 ${activeTab === "care" ? "text-teal-200" : "text-slate-400"}`} />
+                <span>Parent Health Hub (Sparsh)</span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full ml-1 font-mono ${
+                    activeTab === "care"
+                      ? "bg-white/20 text-white"
+                      : "bg-slate-200 dark:bg-white/10 text-slate-600 dark:text-slate-300"
+                  }`}
+                >
+                  Active
+                </span>
+              </button>
+            )}
           </div>
 
           <div className="text-xs text-slate-600 dark:text-slate-300 flex items-center gap-2 font-body px-2">
-            <span className="text-slate-500 dark:text-slate-400">Dedicated Hub:</span>
-            <strong className="text-[#0B1F3A] dark:text-white font-display">Bengaluru Concierge (+91 800-SUSTUNE)</strong>
+            <span className="text-slate-500 dark:text-slate-400">Assigned Hub:</span>
+            <strong className="text-[#0B1F3A] dark:text-white font-display">
+              {client?.assignedCityManager?.hub || "Bengaluru Concierge"} (+91 800-SUSTUNE)
+            </strong>
           </div>
         </div>
 

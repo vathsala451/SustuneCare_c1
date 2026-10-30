@@ -127,7 +127,7 @@ export async function POST(req: NextRequest) {
               actions.push({ label: "Book Consultation", href: "/contact?type=consultation", variant: "primary" });
             }
             if (lower.includes("portal") || lower.includes("dashboard")) {
-              actions.push({ label: "Open Client Portal", href: "/portal-preview" });
+              actions.push({ label: "Open Client Portal", href: "/portal/login" });
             }
             if (actions.length === 0) {
               actions.push({ label: "Book Free Consultation", href: "/contact?type=consultation", variant: "primary" });

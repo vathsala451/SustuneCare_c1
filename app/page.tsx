@@ -2,7 +2,6 @@ import React from "react";
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/home/HeroSection";
 import { TrustStrip } from "@/components/home/TrustStrip";
-import { DualServiceShowcase } from "@/components/home/DualServiceShowcase";
 import { CareEstimator } from "@/components/home/CareEstimator";
 import { PortalTransparency } from "@/components/home/PortalTransparency";
 import { WhySustuneGateway } from "@/components/home/WhySustuneGateway";
@@ -24,10 +23,7 @@ export default function HomePage() {
       {/* 2. Diaspora Trust & Verified Metrics Strip */}
       <TrustStrip />
 
-      {/* 3. Dual Service Showcase: Direct Click-Through to Aegis and Sparsh Pages */}
-      <DualServiceShowcase />
-
-      {/* 4. Interactive Fee & Care Estimator Calculator */}
+      {/* 3. Interactive Fee & Care Estimator Calculator */}
       <CareEstimator />
 
       {/* 5. Client Portal Transparency & Live Demo Link */}

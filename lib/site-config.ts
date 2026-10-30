@@ -25,7 +25,7 @@ export const siteConfig = {
     { label: "Home", href: "/" },
     { label: "Aegis Property", href: "/aegis", badge: "Property" },
     { label: "Sparsh Family Care", href: "/sparsh", badge: "Care" },
-    { label: "Client Portal", href: "/portal-preview", badge: "Demo" },
+    { label: "Client Portal", href: "/portal/login" },
     { label: "Why Sustune", href: "/#why-us" },
     { label: "Governance", href: "/#governance" },
     { label: "Contact", href: "/contact" },

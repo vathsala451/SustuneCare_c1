@@ -92,7 +92,7 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="font-serif tracking-tight font-bold leading-none text-2xl text-white">
-                  SUSTUNE <span className="text-[#D8B56D] font-semibold">CARE</span>
+                  SUSTUNE CARE
                 </span>
                 <span className="text-[9px] uppercase tracking-[0.2em] font-medium mt-1 text-slate-300 font-display">
                   Aegis • Sparsh • NRIs
@@ -221,9 +221,9 @@ export function Footer() {
             </h5>
             <ul className="space-y-2.5 text-slate-300 text-xs font-body">
               <li>
-                <Link href="/portal-preview" className="hover:text-[#D8B56D] transition-colors flex items-center gap-1.5">
+                <Link href="/portal/login" className="hover:text-[#D8B56D] transition-colors flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D8B56D]" />
-                  <span>Dual-Shield Dashboard Demo</span>
+                  <span>Client Portal Login</span>
                 </Link>
               </li>
               <li>

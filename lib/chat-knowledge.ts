@@ -56,7 +56,7 @@ export const PAGE_SUGGESTED_QUESTIONS: Record<string, PageSuggestedQuestion[]> =
     { question: "Can I connect with the concierge on WhatsApp?", category: "contact" },
     { question: "What are the active city desks in India?", category: "contact" },
   ],
-  "/portal-preview": [
+  "/portal/login": [
     { question: "What data is visible in the Client Portal?", category: "general" },
     { question: "How are doctor clinical notes shared with NRIs?", category: "sparsh" },
     { question: "Can I view rental remittances and repair photo logs?", category: "aegis" },
@@ -425,7 +425,7 @@ export function getGroundedChatReply(userMessage: string, pathname: string = "/"
         `• **Parent Health Tab**: Review vital logs (blood pressure, glucose), doctor appointment recordings, and upcoming pharmacy refills.\n` +
         `• Urgent updates are also pushed instantly to your authorized family WhatsApp group.`,
       actions: [
-        { label: "Open Client Portal Demo", href: "/portal-preview", variant: "primary" },
+        { label: "Open Client Portal Login", href: "/portal/login", variant: "primary" },
         { label: "Book a Consultation", href: "/contact" },
       ],
       suggestedQuestions: [

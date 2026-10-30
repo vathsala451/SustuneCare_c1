@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingChatbot } from "@/components/chat/FloatingChatbot";
 import { CurrencyProvider } from "@/lib/currency-context";
 import { ThemeProvider } from "@/lib/theme-context";
+import { PortalAuthProvider } from "@/lib/portal-auth-context";
 
 export const metadata: Metadata = {
   title: "Sustune Care | Institutional Property Stewardship & Family Elder Care for Global NRIs",
@@ -72,11 +73,13 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-white dark:bg-[#071329] text-brand-slate dark:text-slate-100 antialiased transition-colors duration-200">
         <ThemeProvider>
           <CurrencyProvider>
-            <AnnouncementBar />
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <FloatingChatbot />
+            <PortalAuthProvider>
+              <AnnouncementBar />
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+              <FloatingChatbot />
+            </PortalAuthProvider>
           </CurrencyProvider>
         </ThemeProvider>
       </body>
